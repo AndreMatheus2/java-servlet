@@ -1,4 +1,4 @@
-<% String nomeEmpresa = "Google";
+<% String nomeEmpresa = (String)request.getAttribute("empresa");
 System.out.println(nomeEmpresa);
 %>
 
