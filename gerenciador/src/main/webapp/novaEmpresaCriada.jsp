@@ -1,9 +1,7 @@
-<% String nomeEmpresa = (String)request.getAttribute("empresa");
-System.out.println(nomeEmpresa);
-%>
+
 
 <html>
-<body>
-Empresa <%= nomeEmpresa %> cadastrada!
-</body>
+	<body>
+		Empresa ${ empresa } cadastrada!
+	</body>
 </html>
