@@ -1,4 +1,4 @@
-package com.br.andre.gerenciador.servlet;
+package br.com.andre.gerenciador.servlet;
 
 import java.util.ArrayList;
 import java.util.List;

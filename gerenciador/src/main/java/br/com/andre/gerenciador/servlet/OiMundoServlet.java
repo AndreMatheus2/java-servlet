@@ -1,4 +1,4 @@
-package com.br.andre.gerenciador.servlet;
+package br.com.andre.gerenciador.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
