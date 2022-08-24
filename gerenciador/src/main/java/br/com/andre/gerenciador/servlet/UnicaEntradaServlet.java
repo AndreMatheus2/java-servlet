@@ -1,18 +1,19 @@
 package br.com.andre.gerenciador.servlet;
 
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import br.com.andre.gerenciador.acao.AlteraEmpresa;
 import br.com.andre.gerenciador.acao.ListaEmpresa;
 import br.com.andre.gerenciador.acao.MostraEmpresa;
 import br.com.andre.gerenciador.acao.NovaEmpresa;
+import br.com.andre.gerenciador.acao.NovaEmpresaForm;
 import br.com.andre.gerenciador.acao.RemoveEmpresa;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/entrada")
 public class UnicaEntradaServlet extends HttpServlet {
@@ -43,11 +44,15 @@ public class UnicaEntradaServlet extends HttpServlet {
         	AlteraEmpresa acao = new AlteraEmpresa();
         	nome = acao.executa(request, response);
             
+        }else if(paramAcao.equals("NovaEmpresaForm")) {
+        	NovaEmpresaForm acao = new NovaEmpresaForm();
+        	nome = acao.executa(request, response);
+            
         }
         
         String[] tipoEEndereco = nome.split(":");
         if(tipoEEndereco[0].equals("forward")) {
-        RequestDispatcher rd = request.getRequestDispatcher(tipoEEndereco[1]);
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + tipoEEndereco[1]);
 		rd.forward(request, response);
         }else {
         	response.sendRedirect(tipoEEndereco[1]);
