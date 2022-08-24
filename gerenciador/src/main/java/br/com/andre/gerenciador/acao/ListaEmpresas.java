@@ -10,7 +10,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class ListaEmpresa {
+public class ListaEmpresas implements Acao{
 	
 
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
