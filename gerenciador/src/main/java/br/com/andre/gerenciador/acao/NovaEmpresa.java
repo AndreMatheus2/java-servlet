@@ -18,10 +18,8 @@ public class NovaEmpresa {
 
 	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-        System.out.println("Nova Empresa");
 
-
-System.out.println("cadastrando nova empresa");
+        System.out.println("cadastrando nova empresa");
 		
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataEmpresa = request.getParameter("data");
