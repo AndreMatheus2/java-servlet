@@ -7,6 +7,7 @@ import br.com.andre.gerenciador.modelo.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class Login implements Acao {
 
@@ -20,6 +21,8 @@ public class Login implements Acao {
 		Banco banco = new Banco();
 		Usuario usuario = banco.existeusuario(login, senha);
 		if (usuario != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("ususarioLogado", usuario);
 			return "redirect:entrada?acao=ListaEmpresas";
 		}else {
 		
