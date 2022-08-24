@@ -1,23 +1,23 @@
-package br.com.andre.gerenciador.servlet;
+package br.com.andre.gerenciador.acao;
 
 import java.io.IOException;
+import java.util.List;
 
 import br.com.andre.gerenciador.modelo.Banco;
 import br.com.andre.gerenciador.modelo.Empresa;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/mostraEmpresa")
-public class MostraEmpresaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class MostraEmpresa {
+	
+
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+        System.out.println("mostrando dados da empresa");
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 		

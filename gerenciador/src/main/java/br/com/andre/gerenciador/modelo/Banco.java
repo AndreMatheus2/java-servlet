@@ -1,4 +1,4 @@
-package br.com.andre.gerenciador.servlet;
+package br.com.andre.gerenciador.modelo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
