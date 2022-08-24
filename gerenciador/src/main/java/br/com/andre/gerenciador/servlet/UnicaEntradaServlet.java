@@ -1,5 +1,6 @@
 package br.com.andre.gerenciador.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,13 +22,14 @@ public class UnicaEntradaServlet extends HttpServlet {
 
         String paramAcao = request.getParameter("acao"); 
 
+        String nome = null;
         if(paramAcao.equals("ListaEmpresas")) {
             ListaEmpresa acao = new ListaEmpresa();
-            acao.executa(request, response); 
+            nome = acao.executa(request, response); 
             
         } else if(paramAcao.equals("RemoveEmpresa")) {
         	RemoveEmpresa acao = new RemoveEmpresa();
-        	acao.executa(request, response);
+        	nome = acao.executa(request, response);
             
         } else if(paramAcao.equals("MostraEmpresa")) {
         	MostraEmpresa acao = new MostraEmpresa();
@@ -42,6 +44,15 @@ public class UnicaEntradaServlet extends HttpServlet {
         	acao.executa(request, response);
             
         }
+        
+        String[] tipoEEndereco = nome.split(":");
+        if(tipoEEndereco[0].equals("forward")) {
+        RequestDispatcher rd = request.getRequestDispatcher(tipoEEndereco[1]);
+		rd.forward(request, response);
+        }else {
+        	response.sendRedirect(tipoEEndereco[1]);
+		}
+		
     }
 
 }
