@@ -22,7 +22,7 @@ public class Login implements Acao {
 		Usuario usuario = banco.existeusuario(login, senha);
 		if (usuario != null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("ususarioLogado", usuario);
+			session.setAttribute("usuarioLogado", usuario);
 			return "redirect:entrada?acao=ListaEmpresas";
 		}else {
 		

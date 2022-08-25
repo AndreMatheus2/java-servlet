@@ -1,9 +1,7 @@
 
 
 <html>
-	<body>
-		<c:import url="logout-parcial.jsp"/>
-	
+	<body>	
 		Empresa ${ empresa } cadastrada!
 	</body>
 </html>
