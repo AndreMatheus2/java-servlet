@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.thoughtworks.xstream.XStream;
 
 import br.com.andre.gerenciador.modelo.Banco;
 import br.com.andre.gerenciador.modelo.Empresa;
@@ -21,12 +22,18 @@ public class EmpresasService extends HttpServlet {
 		
 		List<Empresa> empresas = new Banco().getEmpresas();
 		
-		Gson gson = new Gson();
-		String json = gson.toJson(gson);
+		XStream xstream = new XStream();
+		xstream.alias("empresa", Empresa.class);
+		String xml = xstream.toXML(empresas);
 		
-		response.setContentType("application/json");
-		response.getWriter().print(json);
+		response.setContentType("application/xml");
+		response.getWriter().print(xml);
 		
+//		Gson gson = new Gson();
+//		String json = gson.toJson(gson);
+//		
+//		response.setContentType("application/json");
+//		response.getWriter().print(json);
 		
 	}
 
