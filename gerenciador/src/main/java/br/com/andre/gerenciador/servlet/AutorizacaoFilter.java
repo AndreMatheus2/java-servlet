@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebFilter("/entrada")
+//@WebFilter("/entrada")
 public class AutorizacaoFilter extends HttpFilter implements Filter {
    
 	public void doFilter(ServletRequest servletRequest, ServletResponse ServletResponse, FilterChain chain) throws IOException, ServletException {
